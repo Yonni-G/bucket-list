@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
 
-        {# Lien vers la favicon #}
-        <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+    {# Lien vers la favicon #}
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
-        {# Google Fonts #}
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    {# Google Fonts #}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
 
-        {% block stylesheets %}
-            {# <link rel="stylesheet" href="{{ asset('styles/style.css') }}"> #}
-        {% endblock %}
+    {% block stylesheets %}
+        {# <link rel="stylesheet" href="{{ asset('styles/style.css') }}"> #}
+    {% endblock %}
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-    {# Inclusion du header #}
-    {% include 'partials/header.html.twig' %}
+    {% block javascripts %}
+        {% block importmap %}{{ importmap('app') }}{% endblock %}
+    {% endblock %}
+</head>
+<body>
+{# Inclusion du header #}
+{% include 'partials/header.html.twig' %}
 
-        {% block body %}{% endblock %}
+{% block body %}{% endblock %}
 
-    {# Inclusion du footer #}
-    {% include 'partials/footer.html.twig' %}
-    </body>
+{# Inclusion du footer #}
+{% include 'partials/footer.html.twig' %}
+</body>
 </html>
