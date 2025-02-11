@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-                  <img src="{{ asset('images/logo.svg') }}" alt="Avatar Logo" style="width:40px;" class="rounded-pill"> BUCKET-LIST
+                  <img src="{{ asset('images/logo.svg') }}" alt="Avatar Logo" style="width:80px;" class="rounded-pill"> BUCKET-LIST
                 </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -10,18 +10,18 @@
             <div class="collapse navbar-collapse" id="mynavbar">
                   <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                              <a class="nav-link" href="javascript:void(0)">Link</a>
+                              <a class="nav-link" href="{{ path('app_main') }}">Accueil</a>
                             </li>
                         <li class="nav-item">
-                              <a class="nav-link" href="javascript:void(0)">Link</a>
+                              <a class="nav-link" href="javascript:void(0)">List a wish</a>
                             </li>
                         <li class="nav-item">
-                              <a class="nav-link" href="javascript:void(0)">Link</a>
+                              <a class="nav-link" href="javascript:void(0)">Add a wish</a>
                             </li>
                       </ul>
                   <form class="d-flex">
-                        <input class="form-control me-2" type="text" placeholder="Search">
-                        <button class="btn btn-primary" type="button">Search</button>
+                        <input class="form-control me-2" type="text" placeholder="Wish...">
+                        <button class="btn btn-primary" type="button">Search a wish</button>
                       </form>
                 </div>
           </div>

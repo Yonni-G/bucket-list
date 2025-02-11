@@ -22,11 +22,10 @@ final class MainController extends AbstractController
     public function index(): Response
     {
         
-        $message = $this->monService->saluer('popo');
+        $message = $this->monService->saluer('Yonni');
         
         return $this->render('main/index.html.twig', [
             'message' => $message,
-            'myTab' => ['popo', 'pipi']
         ]);
     }
 

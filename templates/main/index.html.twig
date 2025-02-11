@@ -3,10 +3,6 @@
 {% block title %}Hello MainController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
 <div class="example-wrapper">
 
@@ -14,15 +10,5 @@
     <dotlottie-player src="https://lottie.host/b39f3182-0369-49d0-a8f2-54b83779dce7/lSOmpLBXAW.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
 
     <h1> {{ message }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        {% for k, val in myTab %}
-            <p>{{ k ~ ' : ' ~ val|capitalize }}</p>
-        {% endfor %}
-        {% if('toto' is same as 'toto') %}
-        <p>pareil</p>
-        {% endif %}
-    </ul>
 </div>
 {% endblock %}
