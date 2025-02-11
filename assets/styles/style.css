@@ -1,0 +1,46 @@
+/* Appliquer flexbox au body */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Minimum de la hauteur de la fenêtre */
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #CCCCCC;
+}
+
+header, footer {
+    background-color: #1b9448;
+    text-align: center;
+    padding: 10px;
+    color: white;
+}
+header .container {
+    display: flex;
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    gap: 15px; /* Espacement entre le logo et le titre */
+}
+
+header ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+#logo {
+    height: 64px; /* Taille du logo */
+}
+
+#site-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+
+/* Le footer doit être à la fin de la page */
+footer {
+    margin-top: auto; /* Pousse le footer vers le bas */
+
+}
