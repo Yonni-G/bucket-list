@@ -1,28 +1,73 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-                  <img src="{{ asset('images/logo.svg') }}" alt="Avatar Logo" style="width:80px;" class="rounded-pill"> BUCKET-LIST
-                </a>
+             <img src="{{ asset('images/logo.svg') }}" alt="Avatar Logo" style="width:80px;" class="rounded-pill">
+            BUCKET-LIST
+             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-            <div class="collapse navbar-collapse" id="mynavbar">
-                  <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                              <a class="nav-link" href="{{ path('app_main') }}">Accueil</a>
-                            </li>
-                        <li class="nav-item">
-                              <a class="nav-link" href="javascript:void(0)">List a wish</a>
-                            </li>
-                        <li class="nav-item">
-                              <a class="nav-link" href="javascript:void(0)">Add a wish</a>
-                            </li>
-                      </ul>
-                  <form class="d-flex">
-                        <input class="form-control me-2" type="text" placeholder="Wish...">
-                        <button class="btn btn-primary" type="button">Search a wish</button>
-                      </form>
-                </div>
-          </div>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+             <span class="navbar-toggler-icon"></span>
+            
+        </button>
+        
+        <div class="collapse navbar-collapse" id="mynavbar">
+            
+            <ul class="navbar-nav me-auto">
+                
+                <li class="nav-item">
+                     <a class="nav-link" href="{{ path('app_main') }}">Accueil</a>
+                    
+                </li>
+                
+                <li class="nav-item">
+                     <a class="nav-link" href="{{ path('app_wish_list') ~ '/1' }}">List all wishes</a>
+                    
+                </li>
+                {% if(is_granted("ROLE_USER")) %}
+                <li class="nav-item">
+                     <a class="nav-link" href="{{ path('app_wish_new') }}">Add a wish</a>
+                    
+                </li>
+                {% endif %}
+                <li class="nav-item">
+                     <a class="nav-link" href="{{ path('app_aboutus') }}">A propos</a>
+                    
+                </li>
+                {% if(is_granted('IS_AUTHENTICATED')) %}
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
+
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_register') }}">Créer un compte</a>
+
+                    </li>
+
+                {% endif %}
+                
+            </ul>
+            {% if(app.user) %}
+                <p>Hello {{ app.user.userIdentifier }}     &nbsp;</p>
+                <p>Il est {{ "now"|date("H:i") }}</p>
+
+            {% endif %}
+
+            <form class="d-flex" method="post" action="{{ path('app_search') }}">
+
+                 <input name="search" class="form-control me-2" type="text" placeholder="Wish...">
+                
+                <button class="btn btn-primary" type="submit">Search a wish</button>
+                
+            </form>
+            
+        </div>
+        
+    </div>
 </nav>

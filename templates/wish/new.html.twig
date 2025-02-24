@@ -1,0 +1,19 @@
+{# templates/formulaire/mon_formulaire.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulaire avec Erreurs{% endblock %}
+
+{% block body %}
+    <h1>Formulaire</h1>
+
+
+    {{ form_start(form) }}
+    {{ form_row(form.title) }}
+
+    {{ form_row(form.description) }}
+
+    <button class="btn btn-sm btn-primary">{{ form.vars.value.id == null ? 'Créer' : 'Editer' }}</button>
+    {{ form_end(form) }}
+
+{% endblock %}

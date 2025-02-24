@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des wishes ... | {{ parent() }} {% endblock %}
+
+{% block body %}
+
+    <div class="example-wrapper">
+
+        <h1>Liste des souhaits</h1>
+{#
+        {% if hasPreviousPage %}
+            <a href="{{ path('app_wish_list', { 'page': 1 }) }}">⏮ Première</a>
+            <a href="{{ path('app_wish_list', { 'page': page - 1 }) }}">◀ Précédent</a>
+        {% endif %}
+
+        <span>Page {{ page }} sur {{ totalPages }}</span>
+
+        {% if hasNextPage %}
+            <a href="{{ path('app_wish_list', { 'page': page + 1 }) }}">Suivant ▶</a>
+            <a href="{{ path('app_wish_list', { 'page': totalPages }) }}">Dernière ⏭</a>
+        {% endif %}
+#}
+
+        {# Pagination : Afficher les liens de pagination #}
+
+        <div class="pagination">
+            {{ knp_pagination_render(wishes) }}
+        </div>
+
+
+        <hr />
+        <ul>
+            {% for wish in wishes %}
+                <li>
+                    <p>
+                        <strong>
+                            <a href="{{ path('app_wish_detail', { 'id': wish.id }) }}">{{ wish.title }}</a>
+                        </strong> : {{ wish.description }}
+                    </p>
+
+                    <p>{{ wish.user.username }} / {{ wish.dateCreated | date('d/m/Y') }} </p>
+
+                </li>
+            {% else %}
+                <p>Aucun souhait trouvé.</p>
+            {% endfor %}
+        </ul>
+
+    </div>
+{% endblock %}

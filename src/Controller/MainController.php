@@ -22,14 +22,24 @@ final class MainController extends AbstractController
     public function index(): Response
     {
         
-        $message = $this->monService->saluer('Yonni');
+        $message = $this->monService->saluer('popo');
         
         return $this->render('main/index.html.twig', [
             'message' => $message,
         ]);
     }
 
-    private function saluer(string $string)
+    #[Route('/aboutus', name: 'app_aboutus')]
+    public function aboutus(): Response
     {
+
+        $this->addFlash('success', 'Votre action a été effectuée avec succès !');
+        $jsonContent = file_get_contents('../data/team.json');
+        $json_team = json_decode($jsonContent, true);
+
+        return $this->render('main/aboutus.html.twig', [
+            'team' => $json_team
+        ]);
     }
+
 }

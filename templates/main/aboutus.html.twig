@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}A propos de nous ... | {{ parent() }} {% endblock %}
+
+{% block body %}
+
+    <div class="team-wrapper">
+        <h1>Notre équipe</h1>
+        {% if team is empty %}
+            <p>Aucun membre dans l'équipe pour le moment.</p>
+        {% else %}
+            <div class="team-members" style="display: flex; width: 60%; margin: auto">
+                {% for member in team %}
+                    <div class="team-member" style="justify-content: center; padding: 20px; margin: 20px; border:1px solid gray">
+                        <img width="200px" src="{{ member.picture }}" alt="{{ member.firstname }} {{ member.lastname }}">
+                        {% if member.lastname | lower == 'poTencier' | lower %}
+                            <h2>❤️ 💕 💖 💗
+                            </h2>
+                        {% endif %}
+                        <h2>{{ member.firstname }} {{ member.lastname }}</h2>
+                        <p>{{ member.description }}</p>
+                        <p>{{ member.description }}</p>
+                        <p>{{ member.dateOfBirth | date('d/m/Y') }}</p>
+                        <p>{{ member.dateOfBirth | date('d/m/Y') }}</p>
+                        <p>{{ member.dateOfBirth | date('d/m/Y') }}</p>
+                        <p>{{ member.dateOfBirth | date('d/m/Y') }}</p>
+                        <p>{{ member.dateOfBirth | date('d/m/Y') }}</p>
+
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+{% endblock %}

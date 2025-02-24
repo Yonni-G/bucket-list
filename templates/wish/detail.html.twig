@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails d'un wish ... | {{ parent() }} {% endblock %}
+
+{% block body %}
+
+    <div class="example-wrapper">
+
+        <h1>Détails du wish : </h1>
+        <pre>
+            {{ wish.description }}
+        </pre>
+
+        <p>{{ wish.author }} / {{ wish.dateCreated | date('d/m/Y') }} </p>
+<p>{{ wish.poster }}</p>
+        <img src="{{ asset('images/uploads/' ~ wish.poster) }}" alt=""/>
+
+
+
+        <a href="{{ path('app_wish_edit', {'id': wish.id}) }}" class="btn btn-lg btn-warning">
+                <i class="bi bi-pencil"> </i> Éditer
+            </a>
+
+        {% if(is_granted("ROLE_ADMIN")) %}
+        <form action="{{ path('app_wish_delete', {'id': wish.id}) }}" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');">
+            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ wish.id) }}">
+            <button type="submit" class="btn btn-lg btn-danger">
+                <i class="bi bi-trash"></i> Supprimer
+            </button>
+        </form>
+        {% endif %}
+
+
+    </div>
+{% endblock %}

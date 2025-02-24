@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+    {{ form_row(form.imageFile) }}
+    {% if user.imageName %}
+        <div class="mt-2">
+            <img src="{{ vich_uploader_asset(user, 'imageFile') }}" alt="Profile picture" class="max-w-xs"/>
+        </div>
+    {% endif %}
+    <button type="submit" class="btn btn-primary">Sauvegarder</button>
+    {{ form_end(form) }}
+
+{% endblock %}

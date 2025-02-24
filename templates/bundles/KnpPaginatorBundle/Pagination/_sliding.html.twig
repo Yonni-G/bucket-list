@@ -1,0 +1,26 @@
+{# templates/bundles/KnpPaginatorBundle/Pagination/_sliding.html.twig #}
+{% block knp_pagination_body %}
+    <nav class="pagination-nav">
+
+
+        <ul class="pagination">
+            {% if wishes.hasPreviousPage %}
+                <li><a href="{{ path('app_wish_list', {page: wishes.previousPage}) }}" class="pagination-btn prev">« Précédent</a></li>
+            {% else %}
+                <li class="disabled"><span class="pagination-btn prev">« Précédent</span></li>
+            {% endif %}
+
+            {% for page in range(1, wishes.pageCount + 1) %}
+                <li class="{{ wishes.currentPage == page ? 'active' : '' }}">
+                    <a href="{{ path('app_wish_list', {page: page}) }}" class="pagination-btn">{{ page }}</a>
+                </li>
+            {% endfor %}
+
+            {% if wishes.hasNextPage %}
+                <li><a href="{{ path('app_wish_list', {page: wishes.nextPage}) }}" class="pagination-btn next">Suivant »</a></li>
+            {% else %}
+                <li class="disabled"><span class="pagination-btn next">Suivant »</span></li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endblock %}

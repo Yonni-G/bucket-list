@@ -1,14 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
+{% block title %}Bienvenue | {{ parent() }} {% endblock %}
+
 
 {% block body %}
 
-<div class="example-wrapper">
+    <div class="example-wrapper">
 
-    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
-    <dotlottie-player src="https://lottie.host/b39f3182-0369-49d0-a8f2-54b83779dce7/lSOmpLBXAW.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+        <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+                type="module"></script>
+        <dotlottie-player src="https://lottie.host/b39f3182-0369-49d0-a8f2-54b83779dce7/lSOmpLBXAW.lottie"
+                          background="transparent" speed="1" style="width: 300px; height: 300px" loop
+                          autoplay></dotlottie-player>
 
-    <h1> {{ message }}! ✅</h1>
-</div>
+        <h1> Accueil</h1>
+    </div>
 {% endblock %}
